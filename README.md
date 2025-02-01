@@ -10,7 +10,7 @@ It adds many quality of life features and improvements to the experience on the 
 
 ### Commands:
 
-- `/items view [item name]` - View the wiki page for the item in your hand or the name specified.
+- `/items view [item name]` - View the wiki page for the item name specified.
 - `/items search [item name]` - Search for an item in the wiki and quickly view its stats.
 - `/items price (period) (direction) [item name]` - View the buy or sell price of an item in the Bazaar for the latest Day, Week or Month.
 - `/mba objective create <objectives>` - Creates a widget to track a custom list of objectives. Simply separate each of your objectives with a comma, and it will display a scoreboard of the current step
