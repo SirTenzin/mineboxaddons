@@ -1,0 +1,47 @@
+{
+	"schemaVersion": 1,
+	"id": "mineboxaddons",
+	"version": "${version}",
+	"name": "MineboxAddons",
+	"description": "A small utilities mod for the Minebox server.",
+	"authors": [
+		"amianthus"
+	],
+	"contributors": [
+		"Zelda (French Translation)"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/project/mineboxaddons",
+		"sources": "https://github.com/sirtenzin/mineboxaddons",
+		"issues": "https://github.com/sirtenzin/mineboxaddons/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/mineboxaddons/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.amianthus.mineboxaddons.MineboxAddons"
+		],
+		"client": [
+			"com.amianthus.mineboxaddons.MineboxAddonsClient"
+		]
+	},
+	"mixins": [
+		"mineboxaddons.mixins.json",
+		{
+			"config": "mineboxaddons.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.3",
+		"java": ">=21",
+		"fabric-api": "*",
+		"owo-lib": "~0.12.18+1.21.2",
+		"modmenu": "12.0.0"
+	},
+	"suggests": {
+		"mineboxadditions": "*"
+	}
+}

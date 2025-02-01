@@ -1,0 +1,128 @@
+<owo-ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/wisp-forest/owo-lib/1.20/owo-ui.xsd">
+    <components>
+        <!-- Grid
+            - Rows: 1
+            - Columns: 2
+            - Column 1: Side navbar
+            - Column 2: Main content
+        -->
+        <flow-layout direction="horizontal">
+            <children>
+                <flow-layout direction="vertical">
+                    <children>
+                        <scroll direction="vertical">
+                            <flow-layout direction="vertical" id="sidebar">
+                                <children></children>
+                                <gap>10</gap>
+
+                                <sizing>
+                                    <horizontal method="fill">100</horizontal>
+                                    <vertical method="content">100</vertical>
+                                </sizing>
+                            </flow-layout>
+
+                            <sizing>
+                                <vertical method="fill">100</vertical>
+                                <horizontal method="fill">100</horizontal>
+                            </sizing>
+
+                            <padding>
+                                <all>10</all>
+                            </padding>
+                        </scroll>
+                    </children>
+
+                    <sizing>
+                        <horizontal method="fill">15</horizontal>
+                        <vertical method="fill">100</vertical>
+                    </sizing>
+
+                    <margins>
+                        <right>10</right>
+                    </margins>
+
+                    <surface>
+                        <panel dark="false"/>
+                    </surface>
+                </flow-layout>
+
+                <flow-layout direction="vertical" id="contentsLayout">
+                    <children>
+<!--                        <scroll direction="vertical" id="contentsScrollContainer">-->
+                            <flow-layout direction="vertical" id="contentsScroller">
+                                <children>
+                                    <scroll direction="vertical" id="contentsScrollContainer">
+                                        <label id="pageContent">
+                                            <text>The page content will show up here!</text>
+
+                                            <sizing>
+                                                <vertical method="content">100</vertical>
+                                                <horizontal method="fill">100</horizontal>
+                                            </sizing>
+                                        </label>
+
+                                        <sizing>
+                                            <vertical method="fill">100</vertical>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+                                    </scroll>
+                                </children>
+
+                                <padding>
+<!--                                    <right>10</right>-->
+                                </padding>
+
+                                <margins><all>10</all></margins>
+
+                                <sizing>
+                                    <vertical method="fill">100</vertical>
+                                    <horizontal method="fill">100</horizontal>
+                                </sizing>
+                            </flow-layout>
+
+<!--                            <sizing>-->
+<!--                                <vertical method="fill">100</vertical>-->
+<!--                                <horizontal method="fill">100</horizontal>-->
+<!--                            </sizing>-->
+
+<!--                            <padding>-->
+<!--                                <right>10</right>-->
+<!--                            </padding>-->
+<!--                        </scroll>-->
+                    </children>
+
+                    <sizing>
+                        <horizontal method="fill">85</horizontal>
+                        <vertical method="fill">100</vertical>
+                    </sizing>
+
+                    <margins>
+                        <right>10</right>
+                    </margins>
+
+                    <padding>
+                        <all>10</all>
+                    </padding>
+
+                    <surface>
+                        <panel dark="true"/>
+                    </surface>
+                </flow-layout>
+            </children>
+
+            <padding>
+                <all>10</all>
+            </padding>
+
+            <sizing>
+                <horizontal method="fill">100</horizontal>
+                <vertical method="fill">100</vertical>
+            </sizing>
+
+            <surface>
+                <vanilla-translucent/>
+            </surface>
+        </flow-layout>
+    </components>
+</owo-ui>

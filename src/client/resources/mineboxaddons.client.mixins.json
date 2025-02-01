@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.amianthus.mineboxaddons.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "PlayerListHudMixin",
+    "TextFieldWidgetMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

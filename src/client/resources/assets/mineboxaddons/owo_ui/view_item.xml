@@ -1,0 +1,305 @@
+<owo-ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/wisp-forest/owo-lib/1.20/owo-ui.xsd">
+    <components>
+        <flow-layout direction="vertical">
+            <children>
+                <flow-layout direction="horizontal" id="itemNameContainer">
+                    <children>
+                        <label id="itemName">
+                            <text>Item Name Header</text>
+                            <color>black</color>
+                        </label>
+                    </children>
+
+                    <vertical-alignment>center</vertical-alignment>
+                    <horizontal-alignment>center</horizontal-alignment>
+
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">5</vertical>
+                    </sizing>
+
+                    <margins>
+                        <bottom>10</bottom>
+                    </margins>
+
+                    <surface>
+                        <panel dark="false" />
+                    </surface>
+                </flow-layout>
+
+                <flow-layout direction="horizontal">
+                    <children>
+                        <!-- Item Sidebar -->
+                        <flow-layout direction="vertical">
+                            <children>
+                                <scroll direction="vertical">
+                                    <flow-layout direction="vertical" id="itemSidebar">
+                                        <children>
+                                            <!-- Item Texture -->
+                                            <flow-layout direction="vertical" id="itemImage">
+                                                <children>
+
+                                                </children>
+
+                                                <margins>
+                                                    <all>10</all>
+                                                </margins>
+
+                                                <surface>
+                                                    <panel dark="true" />
+                                                </surface>
+                                            </flow-layout>
+
+                                            <label id="itemSidebarName">
+                                                <text>Item Name</text>
+                                                <margins>
+                                                    <all>10</all>
+                                                </margins>
+                                            </label>
+
+                                        </children>
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+                                    </flow-layout>
+
+                                    <surface>
+                                        <panel dark="false" />
+                                    </surface>
+
+                                    <sizing>
+                                        <vertical method="fill">100</vertical>
+                                        <horizontal method="fill">100</horizontal>
+                                    </sizing>
+
+                                    <padding>
+                                        <all>2</all>
+                                    </padding>
+
+                                    <vertical-alignment>center</vertical-alignment>
+                                    <horizontal-alignment>center</horizontal-alignment>
+                                </scroll>
+                            </children>
+                            <gap>10</gap>
+
+                            <sizing>
+                                <horizontal method="fill">20</horizontal>
+                                <vertical method="fill">100</vertical>
+                            </sizing>
+
+                            <vertical-alignment>center</vertical-alignment>
+                            <horizontal-alignment>center</horizontal-alignment>
+                        </flow-layout>
+
+                        <flow-layout direction="vertical">
+                            <children>
+                                <!-- Description and Recipe Section -->
+                                <flow-layout direction="vertical">
+                                    <children>
+                                            <flow-layout direction="vertical">
+                                                <children>
+                                                    <flow-layout direction="horizontal">
+                                                        <children>
+                                                            <label>
+                                                                <text>Description</text>
+                                                                <margins>
+                                                                    <all>
+                                                                        5
+                                                                    </all>
+                                                                </margins>
+
+                                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                                <vertical-text-alignment>center</vertical-text-alignment>
+                                                            </label>
+                                                        </children>
+
+                                                        <horizontal-alignment>center</horizontal-alignment>
+                                                        <vertical-alignment>center</vertical-alignment>
+
+                                                        <sizing>
+                                                            <horizontal method="content">100</horizontal>
+                                                        </sizing>
+
+                                                        <margins>
+                                                            <all>10</all>
+                                                        </margins>
+
+                                                        <surface>
+                                                            <panel-with-inset>2</panel-with-inset>
+                                                        </surface>
+                                                    </flow-layout>
+                                                    <label id="itemDescription">
+                                                        <text>Desc</text>
+                                                        <color>black</color>
+                                                    </label>
+
+                                                    <flow-layout direction="horizontal" id="recipeBadgeHeader">
+                                                        <children>
+                                                            <label>
+                                                                <text>Recipe</text>
+                                                                <margins>
+                                                                    <all>
+                                                                        5
+                                                                    </all>
+                                                                </margins>
+
+                                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                                <vertical-text-alignment>center</vertical-text-alignment>
+                                                            </label>
+                                                        </children>
+
+                                                        <horizontal-alignment>center</horizontal-alignment>
+                                                        <vertical-alignment>center</vertical-alignment>
+
+                                                        <sizing>
+                                                            <horizontal method="content">100</horizontal>
+                                                        </sizing>
+
+                                                        <margins>
+                                                            <all>10</all>
+                                                        </margins>
+
+                                                        <surface>
+                                                            <panel-with-inset>2</panel-with-inset>
+                                                        </surface>
+                                                    </flow-layout>
+
+                                                    <label id="itemRecipeLabel">
+                                                        <text>Recipe</text>
+                                                    </label>
+
+                                                    <scroll direction="horizontal">
+                                                        <flow-layout direction="horizontal" id="recipeContainer">
+                                                            <children></children>
+
+                                                            <sizing>
+                                                                <horizontal method="content">100</horizontal>
+                                                            </sizing>
+
+                                                            <horizontal-alignment>center</horizontal-alignment>
+                                                            <vertical-alignment>center</vertical-alignment>
+                                                        </flow-layout>
+
+                                                        <horizontal-alignment>center</horizontal-alignment>
+                                                        <vertical-alignment>center</vertical-alignment>
+
+                                                        <sizing>
+                                                            <vertical method="content">5</vertical>
+                                                            <horizontal method="fill">100</horizontal>
+                                                        </sizing>
+                                                    </scroll>
+
+                                                    <flow-layout direction="vertical">
+                                                        <children>
+                                                            <label id="itemUsedInRecipesLabel">
+                                                                <text>Used in recipes:</text>
+                                                                <margins><all>5</all></margins>
+
+                                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                                <vertical-text-alignment>center</vertical-text-alignment>
+                                                            </label>
+                                                        </children>
+
+                                                        <horizontal-alignment>center</horizontal-alignment>
+                                                        <vertical-alignment>center</vertical-alignment>
+
+                                                        <sizing>
+                                                            <horizontal method="content">100</horizontal>
+                                                        </sizing>
+
+                                                        <margins>
+                                                            <all>10</all>
+                                                        </margins>
+
+                                                        <surface>
+                                                            <panel-with-inset>2</panel-with-inset>
+                                                        </surface>
+                                                    </flow-layout>
+
+                                                    <scroll direction="horizontal">
+                                                        <flow-layout direction="horizontal" id="usedInRecipeContainer">
+                                                            <children></children>
+
+                                                            <horizontal-alignment>center</horizontal-alignment>
+
+                                                            <sizing>
+                                                                <horizontal method="content">100</horizontal>
+                                                            </sizing>
+                                                        </flow-layout>
+
+                                                        <sizing>
+                                                            <vertical method="content">5</vertical>
+                                                            <horizontal method="fill">100</horizontal>
+                                                        </sizing>
+                                                    </scroll>
+                                                </children>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                    <vertical method="content">5</vertical>
+                                                </sizing>
+                                            </flow-layout>
+                                    </children>
+
+                                    <sizing>
+                                        <horizontal method="fill">100</horizontal>
+                                        <vertical method="content">5</vertical>
+                                    </sizing>
+
+                                    <horizontal-alignment>center</horizontal-alignment>
+                                    <surface>
+                                        <panel dark="false" />
+                                    </surface>
+                                </flow-layout>
+                                <!-- Recipes Section -->
+                            </children>
+
+                            <vertical-alignment>center</vertical-alignment>
+
+                            <margins>
+                                <left>10</left>
+                            </margins>
+                            <sizing>
+                                <vertical method="fill">100</vertical>
+                                <horizontal method="fill">79</horizontal>
+                            </sizing>
+                        </flow-layout>
+                    </children>
+
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">100</vertical>
+                    </sizing>
+
+                    <padding>
+                        <bottom>25</bottom>
+                    </padding>
+
+                    <margins>
+                        <bottom>10</bottom>
+                    </margins>
+                </flow-layout>
+            </children>
+
+            <sizing>
+                <horizontal method="fill">100</horizontal>
+                <vertical method="fill">100</vertical>
+            </sizing>
+
+            <padding>
+                <all>15</all>
+            </padding>
+
+            <surface>
+                <vanilla-translucent />
+            </surface>
+        </flow-layout>
+    </components>
+</owo-ui>
