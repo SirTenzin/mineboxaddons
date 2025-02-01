@@ -59,4 +59,4 @@ The easiest way is to download the mod from [Modrinth](https://modrinth.com/mod/
 
 - [WildfireRomeo (toast stuff)](https://github.com/WildfireRomeo/WildfireFemaleGenderMod/blob/fabric-1.21.4/src/main/java/com/wildfire/gui/WildfireToast.java)
 - <a href="https://www.textstudio.com/">TextStudio.com Font Generator (logo)</a>
- Zelda (French Translation)
+- Zelda (French Translation)
