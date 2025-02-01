@@ -30,13 +30,10 @@ public class BazaarCommands {
         Period period = PeriodArgumentType.getPeriod(context, "period");
         MarketDirection direction = MarketDirectionArgumentType.getDirection(context, "direction");
         ClientPlayerEntity player = context.getSource().getPlayer();
-        String itemName;
+        String itemName = StringArgumentType.getString(context, "item name");
         String periodString = period.name().toLowerCase();
         boolean isBuying = direction == MarketDirection.BUY;
 
-        if (player.getMainHandStack().isEmpty())
-            itemName = StringArgumentType.getString(context, "item name");
-        else itemName = player.getMainHandStack().getItem().getName().getString();
         if(itemName == null || itemName.isEmpty()) {
             Text errorMessage = ChatUtils.createPrefixedText("Please hold an item in your hand or specify a name.", true);
             context.getSource().sendFeedback(errorMessage);
@@ -113,12 +110,9 @@ public class BazaarCommands {
         ClientPlayerEntity player = context.getSource().getPlayer();
         AtomicReference<Item> finalItem = new AtomicReference<>();
         CompletableFuture.runAsync(() -> {
-            String itemName;
-            if (player.getMainHandStack().isEmpty())
-                itemName = StringArgumentType.getString(context, "item name");
-            else itemName = player.getMainHandStack().getItem().getName().getString();
+            String itemName = StringArgumentType.getString(context, "item name");
             if(itemName == null || itemName.isEmpty()) {
-                Text errorMessage = ChatUtils.createPrefixedText("Please hold an item in your hand or specify a name.", true);
+                Text errorMessage = ChatUtils.createPrefixedText("Please specify a name of the item.", true);
                 context.getSource().sendFeedback(errorMessage);
                 return;
             }

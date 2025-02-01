@@ -1,6 +1,8 @@
 package com.amianthus.mineboxaddons.mineboxapi.bazaar.structures;
 
+import com.amianthus.mineboxaddons.utils.ImageSerializer;
 import com.google.gson.JsonArray;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -10,7 +12,7 @@ public record Item(
         String id,
         String category,
         String rarity,
-        String image,
+        @JsonAdapter(ImageSerializer.class) String image,
         int level,
         String name,
         String lore,
