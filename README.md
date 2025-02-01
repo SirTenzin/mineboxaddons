@@ -1,4 +1,7 @@
-# [MineboxAddons]
+<div align="center">
+  <h1>[MineboxAddons]</h1>
+  <img width="256" height="256" src="https://github.com/SirTenzin/mineboxaddons/blob/master/src/main/resources/assets/mineboxaddons/icon.png?raw=true" alt="logo">
+</div>
 
 MineboxAddons is a simple utility mod for the [Minebox](https://minebox.co) server.
 It adds many quality of life features and improvements to the experience on the server.
