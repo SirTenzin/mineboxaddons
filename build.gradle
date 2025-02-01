@@ -19,6 +19,8 @@ repositories {
 
 	// OpenWorthwhileOperations
 	maven { url 'https://maven.wispforest.io/releases/' }
+	// RoughlyEnoughItems
+	maven { url "https://maven.shedaniel.me/" }
 }
 
 loom {
@@ -50,6 +52,11 @@ dependencies {
 	modImplementation "io.wispforest:owo-lib:${project.owo_version}"
 	include "io.wispforest:owo-sentinel:${project.owo_version}"
 	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
+
+	// RoughlyEnoughItems
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+
 }
 
 processResources {
