@@ -42,8 +42,8 @@ public class BazaarCommands {
 
         MineboxAddonsClient.LOGGER.info("Getting market data for {} for the most recent {} to {}.", itemName, periodString, isBuying ? "buy" : "sell");
 
+        ImmutablePair<String, MarketData> marketResponse = new Items().getItemPriceByName(itemName, periodString);
         CompletableFuture.runAsync(() -> {
-            ImmutablePair<String, MarketData> marketResponse = new Items().getItemPriceByName(itemName, periodString);
             String marketName = marketResponse.getLeft();
             MarketData marketData = marketResponse.getRight();
 

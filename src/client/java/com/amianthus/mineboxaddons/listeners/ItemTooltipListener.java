@@ -26,26 +26,38 @@ public class ItemTooltipListener {
         String tooltipText = tooltip.stream().map(Text::getString).reduce("", String::concat);
         if (!tooltipText.contains("Lvl.") && !tooltipText.contains("Niv.")) return;
         String itemName = tooltip.getFirst().getString();
+        MineboxAddonsClient.LOGGER.info("Injecting tooltip for {}", itemName);
         Pair<String, String> emptyPair = Pair.of("No data", "No data");
         Pair<String, String> blockedPair = Pair.of("Blocked", "Blocked");
         if(itemName == null || itemName.isEmpty()) return;
         String firstLetter = itemName.charAt(0) + "";
         if(!firstLetter.toLowerCase().matches("[a-z]")) return;
 
+        String fetchingString = Text.translatable("text.tooltips.fetching").getString();
+        String loadingString = Text.translatable("text.tooltips.loading").getString();
+
         // Check if we have cached data
         boolean hasCachedData = sellCache.containsKey(itemName) && buyCache.containsKey(itemName);
         boolean hasBlockedData = Objects.equals(sellCache.getOrDefault(itemName, emptyPair).getRight(), "Blocked")
                 || Objects.equals(buyCache.getOrDefault(itemName, emptyPair).getRight(), "Blocked");
 
+        MineboxAddonsClient.LOGGER.info("Checking for cached data for {} | isCached {} | isBlocked {}", itemName, hasCachedData, hasBlockedData);
+        MineboxAddonsClient.LOGGER.info("Sell: {} | Buy: {}", sellCache.getOrDefault(itemName, emptyPair), buyCache.getOrDefault(itemName, emptyPair));
+
         if (hasCachedData) {
             // Use cached data
             addTooltipText(tooltip, buyCache.get(itemName), sellCache.get(itemName));
+            MineboxAddonsClient.LOGGER.info("Added cached price data for {}", itemName);
             return;
         }
 
         if(hasBlockedData) {
+            addTooltipText(tooltip, blockedPair, blockedPair);
+            MineboxAddonsClient.LOGGER.info("Added blocked price data for {}", itemName);
             return;
         }
+
+        MineboxAddonsClient.LOGGER.info("Deduper status: {} | {}", didRequest.containsKey(itemName), didRequest.get(itemName));
 
         // Show loading message only if we haven't requested yet
         if (!didRequest.containsKey(itemName) || !didRequest.get(itemName)) {
@@ -59,18 +71,21 @@ public class ItemTooltipListener {
             CompletableFuture.runAsync(() -> {
                 try {
                     MarketData marketData = new Items().getItemPriceByName(itemName, "day").getRight();
-                    Pair<String, String> buyPrice = marketData.getLatestBuyPrice();
-                    Pair<String, String> sellPrice = marketData.getLatestSellPrice();
 
                     MinecraftClient.getInstance().execute(() -> {
-                        // Remove "Fetching prices..." by comparing the translated string
-                        String fetchingString = Text.translatable("text.tooltips.fetching").getString();
-                        tooltip.removeIf(text -> text.getString().equals(fetchingString));
+                        MineboxAddonsClient.LOGGER.info("Fetched price data for {}", itemName);
+                        Pair<String, String> buyPrice = marketData.getLatestBuyPrice();
+                        Pair<String, String> sellPrice = marketData.getLatestSellPrice();
 
-                        // Update caches and add price data
                         if (buyPrice != null) buyCache.put(itemName, buyPrice);
                         if (sellPrice != null) sellCache.put(itemName, sellPrice);
+                        // Remove "Fetching prices..." by comparing the translated string
+
+                        tooltip.removeIf(text -> text.getString().equals(fetchingString) || text.getString().equals(loadingString));
+
+                        // Update caches and add price data
                         addTooltipText(tooltip, buyPrice, sellPrice);
+                        MineboxAddonsClient.LOGGER.info("Added price data for {}", itemName);
                     });
                 } catch (Exception e) {
                     MineboxAddonsClient.LOGGER.error("Failed to fetch price data for {}\n{}\n{}", itemName, e, Arrays.toString(e.getStackTrace()));
@@ -82,6 +97,7 @@ public class ItemTooltipListener {
             // Add translatable "Loading..." text
             Text loadingText = Text.translatable("text.tooltips.loading").formatted(Formatting.GRAY);
             tooltip.add(loadingText);
+            MineboxAddonsClient.LOGGER.info("Loading price data for {}", itemName);
         }
     }
 

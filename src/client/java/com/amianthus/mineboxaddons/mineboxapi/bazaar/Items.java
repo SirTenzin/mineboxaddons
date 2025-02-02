@@ -165,18 +165,18 @@ public class Items {
         return null;
     }
 
-    public static Items[] getItems(int page) {
-        String url = String.format("%s/items?page=%d&pageSize=50&locale=%s", BASE_URL, page, getCurrentLocale());
-
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
-
-        try (Response response = new OkHttpClient().newCall(request).execute()) {
-
-        } catch (Exception e) {
-            MineboxAddonsClient.LOGGER.error(e.toString());
-        }
-    }
+//    public static Items[] getItems(int page) {
+//        String url = String.format("%s/items?page=%d&pageSize=50&locale=%s", BASE_URL, page, getCurrentLocale());
+//
+//        Request request = new Request.Builder()
+//                .url(url)
+//                .get()
+//                .build();
+//
+//        try (Response response = new OkHttpClient().newCall(request).execute()) {
+//
+//        } catch (Exception e) {
+//            MineboxAddonsClient.LOGGER.error(e.toString());
+//        }
+//    }
 }

@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.9-SNAPSHOT'
 	id 'maven-publish'
+//	id 'com.gradleup.shadow' version '9.0.0-beta6'
 }
 
 version = project.mod_version
@@ -35,28 +36,42 @@ loom {
 
 }
 
+//shadowJar {
+//	// Relocate dependencies to avoid conflicts
+//	relocate 'com.squareup.okhttp3', 'shadowed.com.squareup.okhttp3'
+//	relocate 'com.squareup.okio', 'shadowed.com.squareup.okio'
+//	relocate 'com.google.gson', 'shadowed.com.google.gson'
+//
+//	// Merge service files (if needed)
+//	mergeServiceFiles()
+//
+//	// Exclude unnecessary files
+//	exclude 'META-INF/*.DSA'
+//	exclude 'META-INF/*.RSA'
+//	exclude 'META-INF/*.SF'
+//}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+	include 'org.apache.commons:commons-lang3:3.12.0'
+
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// MineboxAPI stuff
-	implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-	implementation 'com.google.code.gson:gson:2.11.0'
-
+	include(implementation('com.squareup.okhttp3:okhttp:4.12.0'))
+	include 'com.squareup.okio:okio-jvm:3.7.0'
+	include(implementation('com.google.code.gson:gson:2.11.0'))
+	implementation("com.squareup.okhttp3:okhttp:4.12.0")
 	// OpenWorthwhileOperations
 	modImplementation "io.wispforest:owo-lib:${project.owo_version}"
 	include "io.wispforest:owo-sentinel:${project.owo_version}"
 	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
-
-	// RoughlyEnoughItems
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
-
 }
 
 processResources {

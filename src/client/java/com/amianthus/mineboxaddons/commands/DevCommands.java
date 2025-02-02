@@ -1,5 +1,6 @@
 package com.amianthus.mineboxaddons.commands;
 
+import com.amianthus.mineboxaddons.MineboxAddonsClient;
 import com.amianthus.mineboxaddons.mineboxapi.bazaar.Items;
 import com.amianthus.mineboxaddons.mineboxapi.bazaar.structures.Item;
 import com.amianthus.mineboxaddons.mixin.client.PlayerListHudMixin;
@@ -15,6 +16,7 @@ import net.minecraft.client.network.ServerInfo;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
+import okhttp3.OkHttpClient;
 
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -126,6 +128,12 @@ public class DevCommands {
             }
             ctx.getSource().sendFeedback(ChatUtils.createMultiLinePrefixedText(message));
         }
+        return 1;
+    }
+
+    public static int findClasses(CommandContext<FabricClientCommandSource> ctx) {
+        MineboxAddonsClient.LOGGER.info("OkHttp class loader: {}", OkHttpClient.class.getClassLoader());
+        MineboxAddonsClient.LOGGER.info("Classpath: {}", System.getProperty("java.class.path"));
         return 1;
     }
 }

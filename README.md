@@ -41,6 +41,7 @@ Currently, this mod only works with English and French (fr_FR). Some features in
 ### Requirements
 
 - Minecraft 1.21.3
+- Fabric Mod Loader 0.16.9+
 - [Fabric API](https://modrinth.com/mod/fabric-api/version/0.114.0+1.21.3)
 - [owo-lib](https://modrinth.com/mod/owo-lib/version/0.12.18+1.21.2)
 - [Mod Menu](https://modrinth.com/mod/modmenu/version/12.0.0)

@@ -34,14 +34,15 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.16.10",
+		"fabricloader": ">=0.16.9",
 		"minecraft": "~1.21.3",
 		"java": ">=21",
 		"fabric-api": "*",
 		"owo-lib": "~0.12.18+1.21.2",
-		"modmenu": "12.0.0"
+		"modmenu": ">=12.0.0"
 	},
 	"suggests": {
-		"mineboxadditions": "*"
+		"mineboxadditions": "*",
+		"notra": "*"
 	}
 }

@@ -40,6 +40,7 @@ public class ClientCommands {
             EVENT.register((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal("time").executes(DevCommands::time)));
             // /serverInfo
             EVENT.register((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal("serverInfo").executes(DevCommands::serverInfo)));
+            EVENT.register((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal("findClasses").executes(DevCommands::findClasses)));
         }
 
         // /mba config gui
