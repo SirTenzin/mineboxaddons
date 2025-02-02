@@ -24,11 +24,17 @@ public class ItemTooltipListener {
 
     public static void injectTooltip(ItemStack stack, Item.TooltipContext context, TooltipType tooltipType, List<Text> tooltip) {
         String tooltipText = tooltip.stream().map(Text::getString).reduce("", String::concat);
-        if (!tooltipText.contains("Lvl.") && !tooltipText.contains("Niv.")) return;
+        if (
+                !tooltipText.contains(Text.translatable("text.tooltips.lvl").getString())
+        ) return;
         String itemName = tooltip.getFirst().getString();
         MineboxAddonsClient.LOGGER.info("Injecting tooltip for {}", itemName);
-        Pair<String, String> emptyPair = Pair.of("No data", "No data");
-        Pair<String, String> blockedPair = Pair.of("Blocked", "Blocked");
+
+        String noDataString = Text.translatable("text.bazaar.nodata").getString();
+        String blockedString = Text.translatable("text.bazaar.blocked").getString();
+
+        Pair<String, String> emptyPair = Pair.of(noDataString, noDataString);
+        Pair<String, String> blockedPair = Pair.of(blockedString, blockedString);
         if(itemName == null || itemName.isEmpty()) return;
         String firstLetter = itemName.charAt(0) + "";
         if(!firstLetter.toLowerCase().matches("[a-z]")) return;

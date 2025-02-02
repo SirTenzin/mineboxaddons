@@ -34,5 +34,10 @@
   "text.tooltips.buyprice": "Prix d'Achat : ",
   "text.tooltips.sellprice": "Prix de Vente : ",
   "text.tooltips.fetching": "Récupération des prix...",
-  "text.tooltips.loading": "Chargement..."
+  "text.tooltips.lvl": "Niv.",
+  "text.tooltips.loading": "Chargement...",
+  "text.bazaar.blocked": "Bloqué",
+  "text.bazaar.nodata": "Pas de données",
+  "text.bank.withdraw": "Retirer",
+  "text.bank.deposit": "Déposer"
 }

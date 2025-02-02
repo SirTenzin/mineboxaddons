@@ -57,8 +57,9 @@ private boolean isBankingScreen(Screen screen) {
     if (screen instanceof HandledScreen<?> handledScreen) {
         Text title = handledScreen.getTitle();
         String titleString = title.getString();
-        return titleString.contains("Withdraw") || titleString.contains("Deposit") ||
-               titleString.contains("Retirer") || titleString.contains("Déposer");
+        String withdrawText = Text.translatable("text.bank.withdraw").getString();
+        String depositText = Text.translatable("text.bank.deposit").getString();
+        return titleString.contains(withdrawText) || titleString.contains(depositText);
     }
     return false;
 }

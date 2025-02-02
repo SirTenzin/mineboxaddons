@@ -34,5 +34,10 @@
   "text.tooltips.buyprice": "Buy Price: ",
   "text.tooltips.sellprice": "Sell Price: ",
   "text.tooltips.fetching": "Fetching prices...",
-  "text.tooltips.loading": "Loading..."
+  "text.tooltips.loading": "Loading...",
+  "text.bazaar.blocked": "Blocked",
+  "text.bazaar.nodata": "No data",
+  "text.tooltips.lvl": "Lvl.",
+  "text.bank.withdraw": "Withdraw",
+  "text.bank.deposit": "Deposit"
 }
